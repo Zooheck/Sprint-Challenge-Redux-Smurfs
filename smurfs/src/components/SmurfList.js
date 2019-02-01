@@ -14,7 +14,7 @@ class SmurfList extends Component {
     return (
       <div>
         {this.props.smurfs.map(smurf => {
-            return <p>{smurf.name}</p>
+            return <p key={this.props.smurfs.indexOf(smurf)}>{smurf.name}</p>
         })}
       </div>
     )

@@ -41,6 +41,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       }
+    case ADDING:
+      return {
+        ...state,
+        isAdding: true
+      }
+    case ADD_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isAdding: false
+      }
     default: 
       return state
   }
