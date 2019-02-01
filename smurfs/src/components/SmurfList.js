@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Smurf from './Smurf'
+
 import { connect } from 'react-redux'
 
 import { getSmurfs } from '../actions/index'
@@ -14,7 +16,7 @@ class SmurfList extends Component {
     return (
       <div>
         {this.props.smurfs.map(smurf => {
-            return <p key={this.props.smurfs.indexOf(smurf)}>{smurf.name}</p>
+            return <Smurf smurf={smurf} key={smurf.id} />
         })}
       </div>
     )
