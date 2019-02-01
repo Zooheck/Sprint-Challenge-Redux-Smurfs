@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import {LOADING, ERROR, SUCCESS, ADDING, ADD_SUCCESS, DELETING, DELETE_SUCCESS} from '../actions/index'
+import {LOADING, ERROR, SUCCESS, ADDING, ADD_SUCCESS, DELETING, DELETE_SUCCESS, UPDATING, UPDATE_SUCCESS} from '../actions/index'
 
 
 const initialState = {
@@ -62,6 +62,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         smurfs: action.payload,
         isDeleting: false
+      }
+    case UPDATING:
+      return {
+        ...state,
+        isUpdating: !state.isUpdating
+      }
+    case UPDATE_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isUpdating: false
       }
     default: 
       return state

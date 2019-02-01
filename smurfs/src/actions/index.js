@@ -15,6 +15,9 @@ export const ADD_SUCCESS = 'ADD_SUCCESS'
 
 export const DELETING = 'DELETING'
 export const DELETE_SUCCESS = 'DELETE_SUCCESS'
+
+export const UPDATING = 'UPDATING'
+export const UPDATE_SUCCESS = 'UPDATE_SUCCESS'
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.
@@ -55,6 +58,20 @@ export const deleteSmurf = id => dispatch => {
   .delete(`http://localhost:3333/smurfs/${id}`)
   .then(response => {
     dispatch({ type: DELETE_SUCCESS, payload: response.data})
+  })
+  .catch(error => {
+    dispatch({type: ERROR, payload: error})
+  })
+}
+export const toggleUpdate = () => dispatch => {
+  dispatch({ type: UPDATING})
+}
+export const updateSmurf = (id, state) => dispatch => {
+  //dispatch({ type: UPDATING})
+  axios
+  .put(`http://localhost:3333/smurfs/${id}`, state)
+  .then(response => {
+    dispatch({ type: UPDATE_SUCCESS, payload: response.data})
   })
   .catch(error => {
     dispatch({type: ERROR, payload: error})

@@ -11,6 +11,7 @@ class SmurfForm extends Component {
         name: '',
         age: 0,
         height: '',
+        isSmurfUpdating: false
     }
     handleChange = e => {
       const {name, value} = e.target
