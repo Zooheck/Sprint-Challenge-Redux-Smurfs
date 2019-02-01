@@ -1,7 +1,14 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-
+const initialState = {
+  smurfs: [],
+  isLoading: false,
+  isAdding: false,
+  isDeleting: false,
+  isUpdating: false,
+  error: null
+}
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
  {
@@ -13,7 +20,13 @@
    error: null
  }
 */
-
+const rootReducer = (state = initialState, action) => {
+  switch(action.type) {
+    default: 
+      return state
+  }
+}
+export default rootReducer
 /*
   You'll only need one smurf reducer for this project.
   Feel free to export it as a default and import as rootReducer. 
