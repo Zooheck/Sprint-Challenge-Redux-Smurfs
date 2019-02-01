@@ -1,6 +1,9 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
+import {LOADING, ERROR, SUCCESS, ADDING, ADD_SUCCESS} from '../actions/index'
+
+
 const initialState = {
   smurfs: [],
   isLoading: false,
@@ -22,6 +25,22 @@ const initialState = {
 */
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
+    case LOADING:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        smurfs: action.payload
+      }
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload
+      }
     default: 
       return state
   }
